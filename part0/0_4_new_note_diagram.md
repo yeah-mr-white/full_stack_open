@@ -1,7 +1,30 @@
+```mermaid
 sequenceDiagram
-      accTitle: My Sequence Diagram
-      accDescr: My Sequence Diagram Description
+    participant browser
+    participant server
 
-      Alice->>John: Hello John, how are you?
-      John-->>Alice: Great!
-      Alice-)John: See you later!
+    browser->>server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    activate server
+    server-->>browser: HTTP 302 Redirect to /exampleapp/notes
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    activate server
+    server-->>browser: HTML document
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
+    activate server
+    server-->>browser: CSS file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
+    activate server
+    server-->>browser: JavaScript file
+    deactivate server
+
+    browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate server
+    server-->>browser: [{content: 'new note', date: '2025-06-03T15:24:24.747Z'}, ... ]
+    deactivate server
+```
