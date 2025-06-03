@@ -1,4 +1,4 @@
-   sequenceDiagram
+sequenceDiagram
       accTitle: My Sequence Diagram
       accDescr: My Sequence Diagram Description
 
