@@ -1,9 +1,9 @@
 Here is a simple flow chart:
 
 ```mermaid
-graph TD:
+graph TD;
     A-->B;
     A-->C;
     B-->D;
-    C-->d;
+    C-->D;
 ```
