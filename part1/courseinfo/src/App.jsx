@@ -1,28 +1,30 @@
-import Header from "./Header";
-import Content from "./Content";
-import Total from "./Total";
+import React from "react";
+import { useState } from "react";
+
+const Display = (props) => <div>{props.value}</div>;
+
+const Button = (props) => {
+    return (
+        <div>
+            <button onClick={props.onClick}>{props.text}</button>
+        </div>
+    );
+};
 
 const App = () => {
-    // const-definitions
-    const course = "Half Stack application development";
-    const part1 = "Fundamentals of React";
-    const exercises1 = 10;
-    const part2 = "Using props to pass data";
-    const exercises2 = 7;
-    const part3 = "State of a component";
-    const exercises3 = 14;
+    const [value, setValue] = useState(10);
+
+    const clickHandler = (newValue) => {
+        console.log("new value,", newValue);
+        setValue(newValue);
+    };
 
     return (
         <div>
-            <Header course={course} />
-            <Content part1={part1} exercises1={exercises1} />
-            <Content part2={part2} exercises2={exercises2} />
-            <Content part3={part3} exercises3={exercises3} />
-            <Total
-                exercises1={exercises1}
-                exercises2={exercises2}
-                exercises3={exercises3}
-            />
+            <Display value={value} />
+            <Button onClick={() => clickHandler(1000)} text="testing" />
+            <Button onClick={() => clickHandler(0)} text="reset" />
+            <Button onClick={() => clickHandler(value + 1)} text="increment" />
         </div>
     );
 };
